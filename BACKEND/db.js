@@ -4,7 +4,7 @@ async function mongodb(){
     try{
      await   mongoose.connect(process.env.MONGODB)
     }catch(error){
-        console.log('error' , error);
+        console.log('errorrrrrr' , error);
     }
 
 }
