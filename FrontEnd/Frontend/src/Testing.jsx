@@ -28,16 +28,17 @@ function Testing() {
     console.log(Pro);
 
   return (
-    <div>
-
-<div  className='w-52 bg-slate-950'>
-{Pro.map((i)=>{
-        <div key={i.id}>
-            <div>{i.name}</div>
-        </div>
-     })}
-</div>
-    </div>
+    <div className="container mx-auto p-4 w-[400px] ">
+    <ul className="space-y-4">
+      {Pro.map((item) => (
+        <li key={item.id} className="bg-white shadow-md rounded-lg p-4 flex justify-evenly">
+        <img src={item.img} className="rounded-full w-[100px] h-[100px] object-cover" alt="" />
+          <div className="text-lg font-semibold ">Name: {item.name}</div>
+          <div className="text-gray-600">Gender: {item.gender}</div>
+        </li>
+      ))}
+    </ul>
+  </div>
   )
 }
 
