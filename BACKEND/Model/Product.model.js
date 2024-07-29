@@ -8,12 +8,10 @@ const Productschema = new mongoose.Schema({
     ProductPrice:{
         Type:String,
         require:true,
-        unique: true,
     },
     ProductRate:{
         Type:String,
         require:true,
-        unique:true
     }
 })
  

@@ -6,6 +6,8 @@ import express from 'express'
 import Cors from 'cors'
 import dotenv from "dotenv"
 import mongodb from './db.js'
+import { UserAdd } from './Controller/User.controller.js'
+
 
 //-------------------------------------------------------//
 // use for create sarver 
@@ -17,6 +19,12 @@ dotenv.config()
 // make a port 
 const PORT = 4000
 //-------------------------------------------------------//
+
+
+app.use(express.json())
+// -------------  router
+app.post('/adduser', UserAdd)
+
 
 
 // get    ->  data bajna 
