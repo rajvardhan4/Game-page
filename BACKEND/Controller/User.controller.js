@@ -5,4 +5,5 @@ async function UserAdd(req, res) {
         username, email, phone, password
 
     } = req.body
+    
 }
