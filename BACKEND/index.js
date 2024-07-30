@@ -7,6 +7,7 @@ import Cors from 'cors'
 import dotenv from "dotenv"
 import mongodb from './db.js'
 import { UserAdd } from './Controller/User.controller.js'
+import {ProductAdd} from './Controller/Product.controller.js'
 
 
 //-------------------------------------------------------//
@@ -24,8 +25,13 @@ const PORT = 4001
 app.use(express.json())
 // -------------  router
 app.post('/adduser', UserAdd)
+app.post('/proAdd',ProductAdd)
 
-
+// {
+//     "ProductDes":"this is nike shoee",
+//     "ProductPrice":"2000.00",
+//     "ProductRate":"5"
+//   }
 
 // get    ->  data bajna 
 // post   ->  data lana 

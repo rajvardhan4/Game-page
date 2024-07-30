@@ -2,15 +2,15 @@ import mongoose, { Types } from "mongoose";
 
 const Carsschema= new mongoose.Schema({
   Carsmodel:{
-    Type:String,
+    type:String,
     require:true
   },
   CarPrice:{
-    Type:String,
+    type:String,
     require:true,
   },
   CarManu:{
-    Type:String,
+    type:String,
     require:true
   },
 
