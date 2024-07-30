@@ -1,21 +1,23 @@
-import mongoose, { Types } from "mongoose";
+import mongoose from "mongoose";
 
-const Carsschema= new mongoose.Schema({
-  Carsmodel:{
-    type:String,
-    require:true
+const Carsschema = new mongoose.Schema(
+  {
+    Carsmodels: {
+      type: String,
+      require: true,
+    },
+    CarPrice: {
+      type: String,
+      require: true,
+    },
+    CarManu: {
+      type: String,
+      require: true,
+    },
   },
-  CarPrice:{
-    type:String,
-    require:true,
-  },
-  CarManu:{
-    type:String,
-    require:true
-  },
+  { timestamps: true }
+);
 
-})
+const carss = mongoose.model("carss", Carsschema);
 
-const Cars=mongoose.model('Cars',Carsschema)
-
-export default Carsschema;
+export default carss;
