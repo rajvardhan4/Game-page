@@ -17,7 +17,7 @@ app.use(Cors())
 // very very imp env file 
 dotenv.config()
 // make a port 
-const PORT = 4000
+const PORT = 4001
 //-------------------------------------------------------//
 
 
@@ -61,9 +61,9 @@ app.get('/data', (req, res) => {
 })
 mongodb()
 .then(()=>{
-app.listen(process.env.PORT,()=>{
-    console.log("mongoodb Cantected seccafull");
-    console.log("server creat",process.env.PORT);
+app.listen(process.env.PORT,()=>{ 
+    console.log("mongoodb Canted hogyaaaa 🔥");
+    console.log("server created",process.env.PORT);
 
 })
 })

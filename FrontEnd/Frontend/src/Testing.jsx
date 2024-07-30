@@ -19,7 +19,7 @@ function Testing() {
 
     async function sunil (){
 
-        const data = await axios.get('http://localhost:4000/data')
+        const data = await axios.get('http://localhost:4001/data')
         .then((res)=>setPro(res.data))
     }
     useEffect(()=>{
