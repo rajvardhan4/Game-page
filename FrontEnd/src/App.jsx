@@ -2,14 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Testing from './Testing'
+import Form from './Form'
+// import Testing from './Testing'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-    <Testing/>
+    <Form/>
     </>
   )
 }
