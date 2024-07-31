@@ -6,7 +6,7 @@ import express from 'express'
 import Cors from 'cors'
 import dotenv from "dotenv"
 import mongodb from './db.js'
-import { UserAdd, getuser } from './Controller/User.controller.js'
+import { UserAdd, getuser, userDel} from './Controller/User.controller.js'
 import {ProductAdd} from './Controller/Product.controller.js'
 import {CarsAdd} from './Controller/Cars.controller.js'
 
@@ -27,7 +27,7 @@ app.use(express.json())
 // -------------  router
 app.post('/adduser', UserAdd)
 app.get('/get-user', getuser)
-
+app.delete('/user-del/:id',userDel)
 app.post('/proAdd',ProductAdd)
 app.post('/cardako',CarsAdd)
 

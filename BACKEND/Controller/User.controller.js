@@ -1,7 +1,7 @@
 import User from "../Model/User.model.js";
 
 
-// user ko create karna ka liya 
+// ---------------  user ko create karna ka liya 
 async function UserAdd(req, res) {
 
     // ------------------ hum body sa user ka data laa rah ha 
@@ -16,7 +16,7 @@ async function UserAdd(req, res) {
     //         massage:"all felid are requred"
     //     })
     // }
-    
+
     try {
 
         // ------------------- user was created 
@@ -51,44 +51,78 @@ async function UserAdd(req, res) {
     }
 }
 
- 
+
 
 // ---------------- user ko get karna 
-async function getuser(req,res){
+async function getuser(req, res) {
 
- try {
+    try {
 
-// find user from user model 
-const users = await  User.find()
-    
+        // find user from user model 
+        const users = await User.find()
 
-     //--------------------cheack user is aviable our not
-     if(!users){ // if user not found toh hum ya lagya ga [!]
-       res.status(500).json({
-           massage:"user not found 😕"
-       })
-     }
-   
-   // succecfully get user response
-     res.status(200).json({
-       massage:'user founded 😄',
-       data:users,
-       error:false,
-       success:true, 
-   
-     })
-   
-    //  if any error in code 
- } catch (error) {
-    console.log("error",error);
-    res.status(500).json({
-        massage:"something want wrong",
-        error:true,
-        success:false, 
-    
-      })
- }
+
+        //--------------------cheack user is aviable our not
+        if (!users) { // if user not found toh hum ya lagya ga [!]
+            res.status(500).json({
+                massage: "user not found 😕"
+            })
+        }
+
+        // succecfully get user response
+        res.status(200).json({
+            massage: 'user founded 😄',
+            data: users,
+            error: false,
+            success: true,
+
+        })
+
+        //  if any error in code 
+    } catch (error) {
+        console.log("error", error);
+        res.status(500).json({
+            massage: "something want wrong",
+            error: true,
+            success: false,
+
+        })
+    }
 
 
 }
-export {UserAdd ,getuser}
+
+
+// ------------------ user ko delete karna 
+
+async function userDel(req, res) {
+    const userid = req.params.id
+    try {
+        const deleteUser = await User.findByIdAndDelete(userid)
+        // if user was not found 
+        if (!deleteUser) { // if user not found toh hum ya lagya ga [!]
+            res.status(502).json({
+                massage: "user not found 😕"
+            })
+        }
+        // succecfully get user response
+        res.status(200).json({
+            massage: 'user deleted peacefully 😄',
+            error: false,
+            success: true,
+
+        })
+    } catch (error) {
+        console.log("error", error);
+        res.status(500).json({
+            massage: "something want wrong in backend 😕",
+            error: true,
+            success: false,
+
+        })
+    }
+}
+
+
+
+export { UserAdd, getuser, userDel }
