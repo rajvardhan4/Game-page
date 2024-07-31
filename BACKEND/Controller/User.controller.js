@@ -124,5 +124,43 @@ async function userDel(req, res) {
 }
 
 
+//------------------- user ka data update karna ka liya 
 
-export { UserAdd, getuser, userDel }
+async function updateUser(req, res) {
+    const userid = req.params.id;
+    try {
+        // Attempt to find and update the user
+        const updateUser = await User.findByIdAndUpdate(userid, req.body, {
+            new: true
+        });
+
+        // If user was not found
+        if (!updateUser) {
+            return res.status(404).json({
+                status: "error",
+                message: "User not found",
+                error: true
+            });
+        }
+
+        // Successfully updated user response
+        res.status(200).json({
+            message: 'User updated successfully 😄',
+            data: updateUser,
+            error: false,
+            success: true
+        });
+
+    } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({
+            message: "Something went wrong on the backend 😕",
+            error: true,
+            success: false
+        });
+    }
+}
+
+
+
+export { UserAdd, getuser, userDel ,updateUser}
