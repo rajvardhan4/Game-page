@@ -5,7 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "custom-background":
-          "url('https://img.freepik.com/free-photo/beautiful-mountains-landscape_23-2151151081.jpg')",
+          "url('https://ideogram.ai/assets/progressive-image/balanced/response/-JHIr_7FQYOpPuC6x2yFJg')",
           backgroundsize: "cover" ,
            backgroundposition: "center" ,
           backgroundrepeat: "no-repeat" 

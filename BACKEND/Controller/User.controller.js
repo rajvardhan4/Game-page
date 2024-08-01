@@ -93,8 +93,9 @@ async function getuser(req, res) {
 }
 
 
-// ------------------ user ko delete karna 
 
+
+// ------------------ user ko delete karna 
 async function userDel(req, res) {
     const userid = req.params.id
     try {
@@ -124,8 +125,8 @@ async function userDel(req, res) {
 }
 
 
-//------------------- user ka data update karna ka liya 
 
+//------------------- user ka data update karna ka liya 
 async function updateUser(req, res) {
     const userid = req.params.id;
     try {

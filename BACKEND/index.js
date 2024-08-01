@@ -25,9 +25,9 @@ const PORT = 4001
 
 app.use(express.json())
 // -------------  router
-app.post('/adduser', UserAdd)
-app.get('/get-user', getuser)
-app.delete('/user-del/:id',userDel)
+app.post('/create-user', UserAdd)
+app.get('/find-user', getuser)
+app.delete('/delete-user/:id',userDel)
 app.put('/Update-user/:id',updateUser)
 app.post('/proAdd',ProductAdd)
 app.post('/cardako',CarsAdd)

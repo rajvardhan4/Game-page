@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Form() {
   const [showAdd, setShowAdd] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [items, setItems] = useState({
     username: "",
     email: "",
@@ -37,9 +39,13 @@ function Form() {
     setShowAdd(!showAdd);
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleMouseEnter = () => {
-    const form = document.getElementById('form-container');
-    const button = document.getElementById('emcee');
+    const form = document.getElementById("form-container");
+    const button = document.getElementById("emcee");
     const formRect = form.getBoundingClientRect();
     const buttonRect = button.getBoundingClientRect();
 
@@ -50,21 +56,27 @@ function Form() {
   };
 
   const handleClick = () => {
-    alert('clicked!');
+    alert("clicked!");
   };
 
   return (
-    <div className="bg-custom-background w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center">
+    <div className="bg-custom-background w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-end">
+      <style>
+        {`
+          input::placeholder {
+            color: white;
+            opacity: 0.7; /* You can adjust the opacity if needed */
+          }
+        `}
+      </style>
       <form
         id="form-container"
-        className="relative shadow-gray-900  p-6 rounded-lg shadow-xl max-w-md w-full backdrop-blur-[3px] "
+        className="relative shadow-gray-900  p-6 me-20 rounded-lg shadow-xl max-w-md w-full backdrop-blur-[3px]"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-bold mb-5 text-center">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-5 text-center">SIGN UP</h2>
         <div className="mb-4">
-          <label className="block text-left mt-3 font-medium">
-            Username
-          </label>
+          <label className="block text-left mt-3 font-medium">Username</label>
           <input
             type="text"
             id="name"
@@ -99,19 +111,24 @@ function Form() {
             value={items.phone}
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-left mt-3 font-medium">
-            Password
-          </label>
+        <div className="mb-4 relative">
+          <label className="block text-left mt-3 font-medium">Password</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
-            className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-100 bg-transparent focus:border-transparent"
+            className="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-100 bg-transparent focus:border-transparent pr-10"
             placeholder="Enter your password"
             onChange={handleOnchange}
             value={items.password}
           />
+          <span
+            className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer mt-6 "
+            onClick={togglePasswordVisibility}
+          >
+            {/* {showPassword ? <FaEye /> : <FaEyeSlash />} */}
+            {showPassword ? "🐵": "🙈"}
+          </span>
         </div>
         <div className="relative w-full h-24">
           <button
@@ -119,8 +136,8 @@ function Form() {
             id="emcee"
             onMouseEnter={handleMouseEnter}
             onClick={handleClick}
-            className="absolute p-2 bg-[#100e1395] text-white font-semibold rounded-md transition-all duration-300 "
-            style={{ left: '50px', top: '50px' }}
+            className="absolute p-2 bg-[#100e1395] text-white font-semibold rounded-md transition-all duration-300"
+            style={{ left: "50px", top: "50px" }}
           >
             Submit
           </button>
