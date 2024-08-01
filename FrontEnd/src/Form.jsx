@@ -19,7 +19,7 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4001/adduser", items);
+      const response = await axios.post("http://localhost:4001/create-user", items);
       console.log(response);
 
       setItems({
@@ -60,7 +60,7 @@ function Form() {
   };
 
   return (
-    <div className="bg-custom-background w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-end">
+    <div className="bg-custom-background w-full h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center">
       <style>
         {`
           input::placeholder {
@@ -71,10 +71,10 @@ function Form() {
       </style>
       <form
         id="form-container"
-        className="relative shadow-gray-900  p-6 me-20 rounded-lg shadow-xl max-w-md w-full backdrop-blur-[3px]"
+        className="relative shadow-gray-900  p-6 rounded-lg shadow-xl max-w-md w-full backdrop-blur-[2px]"
         onSubmit={handleSubmit}
       >
-        <h2 className="text-2xl font-bold mb-5 text-center">SIGN UP</h2>
+        <h2 className="text-2xl font-bold mb-5 text-center">USER FORM</h2>
         <div className="mb-4">
           <label className="block text-left mt-3 font-medium">Username</label>
           <input
@@ -127,7 +127,7 @@ function Form() {
             onClick={togglePasswordVisibility}
           >
             {/* {showPassword ? <FaEye /> : <FaEyeSlash />} */}
-            {showPassword ? "🐵": "🙈"}
+            {showPassword ? "🐵" : "🙈"}
           </span>
         </div>
         <div className="relative w-full h-24">
