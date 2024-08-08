@@ -19,7 +19,10 @@ function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4001/create-user", items);
+      const response = await axios.post(
+        "http://localhost:4001/create-user",
+        items
+      );
       console.log(response);
 
       setItems({
@@ -130,14 +133,14 @@ function Form() {
             {showPassword ? "🐵" : "🙈"}
           </span>
         </div>
-        <div className="relative w-full h-24">
+        <div className="relative w-[200px] h-20">
           <button
             type="submit"
             id="emcee"
             onMouseEnter={handleMouseEnter}
             onClick={handleClick}
-            className="absolute p-2 bg-[#100e1395] text-white font-semibold rounded-md transition-all duration-300"
-            style={{ left: "50px", top: "50px" }}
+            className="absolute p-2 px-10 bg-[#100e1395] text-white font-semibold rounded-md transition-all duration-300"
+            
           >
             Submit
           </button>
